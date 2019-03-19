@@ -1,0 +1,49 @@
+
+apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.android.library'
+
+apply plugin: 'maven-publish'
+
+publish {
+
+
+    userOrg = 'ace'
+    repoName = 'AdditionLibrary'
+    groupId ='com.ace.library_expone'
+    artifactId = 'AdditionLibrary'
+    publishVersion = '1.0'
+    desc = 'Android library for displaying data based on JSON configuration fetched from server. With this library, you can kiss goodbye to string.xml, dimen.xml, arrays.xml. Keep all your string/integer/array config in one file. The library will automatically fetch the data from the url you provide.'
+   // website = 'https://ace.bintray.com/AdditionLibrary'
+    website = 'https://github.com/SunilPatil287/panvelnuberingapp'
+}
+
+//Step II: Add the below publish details
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
